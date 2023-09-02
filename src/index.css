@@ -145,13 +145,14 @@ main {
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
+  /* background-color: red; */
 }
 
 .container {
   margin-top: 1.5rem;
   padding: 1rem;
   /* background-color: yellow; */
-  position: absolute;
+  /* position: relative; */
 }
 
 .form-container {
@@ -164,8 +165,8 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1rem; */
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  /* margin-bottom: 2rem; */
+  /* margin-top: 2rem; */
 }
 
 .submit-btn {
@@ -195,9 +196,20 @@ select {
   margin-top: 3rem;
   /* background-color: yellow; */
   padding: 1rem;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   box-shadow: var(--shadow-3);
   border-radius: 10px;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.list-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .single-item-container {
@@ -264,9 +276,37 @@ select {
   align-items: center;
 }
 
+.undo-container {
+  display: inline-block;
+  padding: 0.3rem;
+  /* background-color: green; */
+  position: absolute;
+  bottom: 5rem;
+  right: 5rem;
+}
+
+.btn-undo {
+  /* background-color: red; */
+  font-size: 1.5rem;
+}
+
 @media screen and (min-width: 500px) {
   .container {
     margin-top: 1.5rem;
     padding: 0rem;
+  }
+
+  .undo-container {
+    display: inline-block;
+    padding: 0.1rem;
+    /* background-color: green; */
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .btn-undo {
+    /* background-color: red; */
+    font-size: 1rem;
   }
 }

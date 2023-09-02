@@ -101,6 +101,10 @@ const SingleItem = ({
           onClick={() => handleDelete(id)}
         />
       </div>
+
+      {/* <div className='undo-container'>
+        <button className='btn btn-undo'>Undo Delete Action</button>
+      </div> */}
     </div>
   )
 }

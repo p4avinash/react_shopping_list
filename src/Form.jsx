@@ -3,6 +3,7 @@ import { units } from "./data"
 import Items from "./Items"
 import { nanoid } from "nanoid"
 import { toast } from "react-toastify"
+import Undo from "./Undo"
 
 // GET ITEM DATA FROM LOCAL STORAGE
 const getLocalStorage = () => {
@@ -22,6 +23,8 @@ const setLocalStorage = (newListItems) => {
 
 const Form = () => {
   const [listItems, setListItems] = useState(getLocalStorage)
+  const [undoDetails, setUndoDetails] = useState({})
+  const [show, setShow] = useState(false)
   const inputItemRef = useRef(null)
   const quantityRef = useRef(null)
   const unitRef = useRef(null)
@@ -53,6 +56,9 @@ const Form = () => {
 
   // FUNCTION TO DELETE ITEMS FROM THE LIST
   const handleDelete = (id) => {
+    setShow(true)
+    const deletedItem = listItems.find((item) => item.id == id)
+    setUndoDetails(deletedItem)
     const newListsItem = listItems.filter((item) => id !== item.id)
     setListItems(newListsItem)
     setLocalStorage(newListsItem)
@@ -151,6 +157,15 @@ const Form = () => {
             handleEditSubmit={handleEditSubmit}
           />
         </div>
+        {show && (
+          <Undo
+            undoDetails={undoDetails}
+            listItems={listItems}
+            setListItems={setListItems}
+            setShow={setShow}
+            setLocalStorage={setLocalStorage}
+          />
+        )}
       </div>
     </main>
   )

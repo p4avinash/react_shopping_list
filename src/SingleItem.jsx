@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { BiSolidEdit, BiSolidSave } from "react-icons/bi"
-import { TiArrowBack } from "react-icons/Ti"
-import { RiDeleteBin6Line } from "react-icons/ri"
+import { RiDeleteBin6Line, RiArrowGoBackFill } from "react-icons/ri"
 import { units } from "./data"
 
 const SingleItem = ({
@@ -87,7 +86,7 @@ const SingleItem = ({
       )}
       <div className='interact-element'>
         {isEditing ? (
-          <TiArrowBack
+          <RiArrowGoBackFill
             className='icons back'
             onClick={() => setIsEditing(!isEditing)}
           />
